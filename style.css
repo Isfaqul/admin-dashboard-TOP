@@ -6,7 +6,7 @@
   --black: #000;
   --grey-60: rgba(0, 0, 0, 0.6);
   --grey-50: rgba(0, 0, 0, 0.5);
-  --grey-30: rgba(0, 0, 0, 0.3);
+  --grey-10: rgba(0, 0, 0, 0.1);
   --main-yellow: #f0b429;
   --white: #fff;
 
@@ -29,12 +29,62 @@ html {
 
 body {
   min-height: 100vh;
+  display: grid;
+  background-color: var(--main-bg);
 }
 
 /* Wrapper Grid */
 .wrapper {
   display: grid;
   grid-template-columns: minmax(300px, 1fr) 5fr;
+}
+
+/* Sidebar Styles */
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  padding: 2.3em;
+  background-color: var(--main-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
+}
+
+.dashboard-title {
+  font-size: 2.6rem;
+  color: var(--white);
+  vertical-align: middle;
+}
+
+.dashboard-title span {
+  font-size: 4.5rem;
+  vertical-align: middle;
+  margin-right: 1.2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  margin-bottom: 2.5em;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+/* Right Side Styles */
+
+.right-side-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
 /* Header Styles */
@@ -47,6 +97,7 @@ body {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 3.6em 3em;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
 .search-container {
@@ -101,6 +152,7 @@ body {
 
 .header-dp-big {
   max-width: 7.5rem;
+  min-height: 7.5rem;
   max-height: 7.5rem;
   width: 100%;
   height: 100%;
@@ -136,49 +188,128 @@ body {
   cursor: pointer;
 }
 
-/* Sidebar Styles */
+/* MAIN CONTENT STYLES */
 
-.sidebar {
-  grid-column: 1 / 2;
-  grid-row: 1 / -3;
-
-  padding: 2.3em;
-  background-color: var(--main-blue);
-  display: flex;
-  flex-direction: column;
-  gap: 5em;
-}
-
-.dashboard-title {
-  font-size: 2.6rem;
-  color: var(--white);
-  vertical-align: middle;
-}
-
-.dashboard-title span {
-  font-size: 4.5rem;
-  vertical-align: middle;
-  margin-right: 1.2rem;
-}
-
-ul {
-  list-style: none;
-}
-
-ul li {
-  margin-bottom: 2.5em;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: var(--white);
-  font-weight: 500;
-  font-size: 2rem;
-}
-
-/* Main Content Styles */
+/* -- article grid */
 
 .main-container {
   grid-column: 2 / 3;
-  background-color: var(--main-bg);
+  padding: 0 3em;
+  display: grid;
+  grid-template-columns: 3fr minmax(27.6rem, 1fr);
+  column-gap: 2.5em;
+}
+
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 0.3em;
+}
+
+.article-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+  column-gap: 2.5em;
+}
+
+.article-item {
+  background-color: var(--white);
+  border-radius: 0.8em;
+  border-left: 5px solid var(--main-yellow);
+  padding: 2.9em 3em;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2.5em;
+}
+
+.article-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.article-content {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--grey-60);
+  margin-bottom: 2.2em;
+}
+
+.article-btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3.5em;
+}
+
+.article-item .article-btns span {
+  cursor: pointer;
+}
+
+/* -- inner-aside */
+
+.inner-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.announcements-container {
+  background-color: var(--white);
+  padding: 2.6em;
+  border-radius: 0.8em;
+  box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
+.announcement-item:not(:first-of-type) {
+  border-top: 2px solid var(--grey-10);
+}
+
+.announcement-item {
+  padding: 2em;
+}
+
+.announcement-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+
+.announcement-content {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--grey-50);
+}
+
+.Trending-articles-container {
+  background-color: var(--white);
+  padding: 2.6em;
+  border-radius: 0.8em;
+  box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.15);
+}
+
+.trending-item {
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  gap: 2.1em;
+}
+
+.trending-icon {
+  width: 4.8rem;
+  height: 4.8rem;
+  background-color: #f0b429;
+  border-radius: 50%;
+}
+
+.trending-handle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+}
+
+.trending-details {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--grey-50);
 }
