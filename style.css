@@ -29,14 +29,15 @@ html {
 
 body {
   min-height: 100vh;
-  display: grid;
+  /* overflow: scroll; */
+
   background-color: var(--main-bg);
 }
 
 /* Wrapper Grid */
 .wrapper {
   display: grid;
-  grid-template-columns: minmax(300px, 1fr) 5fr;
+  grid-template-columns: 300px 1fr;
 }
 
 /* Sidebar Styles */
@@ -69,14 +70,30 @@ ul {
 }
 
 ul li {
-  margin-bottom: 2.5em;
+  margin-bottom: 1.2em;
+  padding: 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 100ms;
+}
+
+ul li:hover,
+ul li:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+ul li:active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar a {
+  height: 100%;
+  display: block;
   text-decoration: none;
   color: var(--white);
   font-weight: 500;
   font-size: 2rem;
+  width: 100%;
 }
 
 /* Right Side Styles */
@@ -120,7 +137,7 @@ ul li {
 .logged-in-user-info {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 3em;
 }
 
@@ -133,6 +150,7 @@ ul li {
 .header-dp-small {
   max-width: 4.8rem;
   max-height: 4.8rem;
+  aspect-ratio: 1/1;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -151,6 +169,7 @@ ul li {
 }
 
 .header-dp-big {
+  aspect-ratio: 1/1;
   max-width: 7.5rem;
   min-height: 7.5rem;
   max-height: 7.5rem;
@@ -173,7 +192,8 @@ ul li {
 .header-btns-container {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-end;
+  gap: 3em;
 }
 
 .header-btn {
@@ -182,10 +202,20 @@ ul li {
   font-weight: 600;
   color: var(--white);
   background-color: var(--main-blue);
-  padding: 1em 2em;
+  padding: 1em 3em;
   border-radius: 2em;
   border: 1px solid var(--main-blue);
   cursor: pointer;
+}
+
+.header-btn:hover,
+.header-btn:focus {
+  outline: 2px dashed rgb(2, 83, 127);
+  outline-offset: -2px;
+}
+
+.header-btn:active {
+  outline: 4px dashed rgb(2, 83, 127);
 }
 
 /* MAIN CONTENT STYLES */
@@ -208,7 +238,7 @@ ul li {
 
 .article-grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
   column-gap: 2.5em;
 }
 
@@ -218,6 +248,7 @@ ul li {
   border-left: 5px solid var(--main-yellow);
   padding: 2.9em 3em;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.15);
   margin-bottom: 2.5em;
