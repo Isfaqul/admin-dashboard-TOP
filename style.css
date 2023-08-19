@@ -65,6 +65,16 @@ body {
   margin-right: 1.2rem;
 }
 
+/* Icon Settings */
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
 ul {
   list-style: none;
 }
@@ -75,6 +85,13 @@ ul li {
   border-radius: 4px;
   cursor: pointer;
   transition: 100ms;
+  display: flex;
+  gap: 2.2em;
+}
+
+ul li span {
+  color: var(--white);
+  fill: white;
 }
 
 ul li:hover,
@@ -206,16 +223,16 @@ ul li:active {
   border-radius: 2em;
   border: 1px solid var(--main-blue);
   cursor: pointer;
+  transition: 100ms;
 }
 
 .header-btn:hover,
 .header-btn:focus {
-  outline: 2px dashed rgb(2, 83, 127);
-  outline-offset: -2px;
+  background-color: #209bde;
 }
 
 .header-btn:active {
-  outline: 4px dashed rgb(2, 83, 127);
+  background-color: #2aa4e5;
 }
 
 /* MAIN CONTENT STYLES */
